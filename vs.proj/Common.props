@@ -15,7 +15,9 @@
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/utf-8 /Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
-      <PreprocessorDefinitions>NOMINMAX;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <!-- RESULT_DIAGNOSTICS_LEVEL=2: WIL error macros record line numbers but not
+           source file paths (its default embeds the absolute path of the build machine). -->
+      <PreprocessorDefinitions>NOMINMAX;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;RESULT_DIAGNOSTICS_LEVEL=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(RepoRoot)src;$(RepoRoot)src\npp;$(RepoRoot)third_party;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <!-- Third-party headers (Windows SDK, WebView2, WIL, nlohmann) are not ours to fix. -->
       <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
@@ -23,6 +25,8 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <!-- Embed only "MarkdownReader.pdb", not the build machine's absolute path. -->
+      <AdditionalOptions>/PDBALTPATH:%_PDB% %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">

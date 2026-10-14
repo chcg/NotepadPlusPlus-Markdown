@@ -56,6 +56,23 @@ foreach ($n in $nativeNotices) {
 }
 $notices += Get-Content -Raw (Join-Path $web 'THIRD_PARTY_NOTICES.txt')
 
+# Refuse to ship anything that mentions this machine: the build tree or the
+# user profile path, in ASCII or UTF-16, in any file (binaries included).
+$latin1 = [Text.Encoding]::GetEncoding(28591)
+$needles = @($root, $env:USERPROFILE) | Where-Object { $_ } | ForEach-Object { $_; $_ -replace '\\', '/' } | Select-Object -Unique
+function Assert-NoMachineData([string] $folder) {
+    foreach ($file in Get-ChildItem -Recurse -File $folder) {
+        $text = $latin1.GetString([IO.File]::ReadAllBytes($file.FullName))
+        foreach ($needle in $needles) {
+            foreach ($form in @($needle, (($needle.ToCharArray() | ForEach-Object { "$_`0" }) -join ''))) {
+                if ($text.IndexOf($form, [StringComparison]::OrdinalIgnoreCase) -ge 0) {
+                    throw "$($file.FullName) contains a local path ($needle). Not packaging."
+                }
+            }
+        }
+    }
+}
+
 if (Test-Path $out) { Remove-Item -Recurse -Force $out }
 New-Item -ItemType Directory -Force -Path $out | Out-Null
 
@@ -73,6 +90,7 @@ foreach ($p in $Platform) {
     Remove-Item (Join-Path $stage 'web\THIRD_PARTY_NOTICES.txt')
     Copy-Item (Join-Path $root 'LICENSE') $stage
     Set-Content -Path (Join-Path $stage 'THIRD_PARTY_NOTICES.txt') -Value $notices -Encoding utf8
+    Assert-NoMachineData $stage
 
     $zip = Join-Path $out "MarkdownReader-$arch.zip"
     Compress-Archive -Path (Join-Path $stage '*') -DestinationPath $zip
