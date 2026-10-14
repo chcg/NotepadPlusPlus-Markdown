@@ -26,19 +26,14 @@ Live preview + full reading mode, native on <b>ARM64</b> and <b>x64</b>.</h3>
 
 <table align="center">
   <tr>
-    <td align="center" width="33%">
+    <td align="center" width="50%">
       <a href="https://github.com/rsalinger/NotepadPlusPlus-Markdown/releases/download/v0.1.0/MarkdownReader-arm64.zip" aria-label="Download MarkdownReader for ARM64">
         <img src="docs/assets/download-arm64.svg" width="100%" alt="Download for ARM64 (Windows on ARM, Snapdragon X, Surface)">
       </a>
     </td>
-    <td align="center" width="33%">
+    <td align="center" width="50%">
       <a href="https://github.com/rsalinger/NotepadPlusPlus-Markdown/releases/download/v0.1.0/MarkdownReader-x64.zip" aria-label="Download MarkdownReader for x64">
         <img src="docs/assets/download-x64.svg" width="100%" alt="Download for x64 (Intel and AMD Windows PCs)">
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="#-roadmap" aria-label="Plugin Admin listing is on the roadmap">
-        <img src="docs/assets/plugin-admin.svg" width="100%" alt="Plugin Admin: listing coming soon">
       </a>
     </td>
   </tr>
@@ -186,7 +181,6 @@ Built with MSVC for **ARM64** and **x64** (x86 builds too), statically linked: n
 | 🧪 | Notepad++ shortcuts work while the preview has focus |
 | 🧪 | Links: browser / Notepad++ / blocked |
 | ✅ | Portable Notepad++ friendly |
-| 🗺️ | Plugin Admin listing |
 | 🗺️ | Native Markdown syntax highlighting (Language menu) |
 
 </td></tr>
@@ -209,8 +203,6 @@ Windows 11; on Windows 10 it ships with Edge).
 
 > [!TIP]
 > On a first run Notepad++ docks new panels quite narrow. Drag the panel's edge to give it room; Notepad++ remembers.
-
-Plugin Admin installation is on the [roadmap](#-roadmap).
 
 ---
 
@@ -326,7 +318,6 @@ scripts\package.ps1
 - [ ] Hands-on verification of export, print, links and shortcuts → **v0.2**
 - [ ] Toolbar buttons, a settings dialog and an x86 release
 - [ ] CI builds on GitHub Actions (ARM64 runners included)
-- [ ] **Plugin Admin** listing for ARM64, x64 and x86
 - [ ] Native Markdown syntax highlighting with its own *Language* menu entry
 - [ ] Ideas welcome: open an issue!
 
