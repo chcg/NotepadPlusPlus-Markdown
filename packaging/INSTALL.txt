@@ -1,0 +1,55 @@
+MarkdownReader for Notepad++: how to install
+=============================================
+
+This is a Notepad++ PLUGIN, not an app. There is no setup program and nothing to
+double-click: Notepad++ loads MarkdownReader.dll by itself once these files are
+in the right folder. It takes about two minutes.
+
+
+1. Check which zip you need
+   In Notepad++, open  ? > About Notepad++  and look at the first line:
+     (ARM 64-bit)  ->  MarkdownReader-arm64.zip
+     (64-bit)      ->  MarkdownReader-x64.zip
+   MarkdownReader needs Notepad++ 8.7.7 or newer.
+
+2. Close Notepad++.
+
+3. Unblock the zip (Windows may refuse to load DLLs downloaded from the internet)
+   Right-click the .zip > Properties > tick "Unblock" if it is shown > OK.
+   Do this before extracting, and the extracted files won't be blocked either.
+
+4. Create the plugin folder
+     C:\Program Files\Notepad++\plugins\MarkdownReader\
+   Windows will ask for administrator permission; that's expected.
+   Portable Notepad++? Use  <your Notepad++ folder>\plugins\MarkdownReader\  instead.
+
+5. Copy everything from the zip into that folder, so that you end up with
+     ...\plugins\MarkdownReader\MarkdownReader.dll
+     ...\plugins\MarkdownReader\web\          (a folder with the preview page)
+   Careful: Windows' "Extract All" adds an extra folder level, for example
+     ...\plugins\MarkdownReader\MarkdownReader-arm64\MarkdownReader.dll   <- won't load
+   The DLL must sit directly inside plugins\MarkdownReader\.
+
+6. Start Notepad++ and open any .md file.
+   The Markdown Preview panel appears on the right. Everything else is under
+   Plugins > MarkdownReader (try Toggle Reading Mode).
+
+
+Requirements
+   Notepad++ 8.7.7 or newer, and the Microsoft Edge WebView2 Runtime
+   (built into Windows 11; on Windows 10 it comes with Microsoft Edge).
+
+Troubleshooting
+   "Cannot load ARM64 plugin" or "Cannot load 64-bit plugin"
+       You installed the zip for the other architecture; see step 1.
+   No "MarkdownReader" under the Plugins menu
+       The DLL is not directly inside plugins\MarkdownReader\ (see step 5),
+       or the files are still blocked (see step 3).
+   The panel is very narrow
+       Drag its edge wider; Notepad++ remembers the size.
+
+Uninstall
+   Close Notepad++ and delete the plugins\MarkdownReader folder.
+
+More help, source code and updates:
+   https://github.com/rsalinger/NotepadPlusPlus-Markdown

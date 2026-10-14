@@ -7,6 +7,8 @@
 *.props   text eol=crlf
 *.ps1     text eol=crlf
 *.rc      text eol=crlf
+# Shipped inside the release zips; opened by people in Notepad.
+packaging/*.txt text eol=crlf
 
 *.png binary
 *.ico binary

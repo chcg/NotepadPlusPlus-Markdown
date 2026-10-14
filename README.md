@@ -39,6 +39,8 @@ Live preview + full reading mode, native on <b>ARM64</b> and <b>x64</b>.</h3>
   </tr>
 </table>
 
+<p align="center">📦 <b>These are plugin zips, not installers.</b> <a href="#-installation">Here's the two-minute setup.</a></p>
+
 > **Notepad++ is the editor you already love. MarkdownReader is the part that finally makes `README.md` *readable*.**
 > One native DLL, zero .NET, zero background services. Open a Markdown file and it just... renders.
 
@@ -190,19 +192,63 @@ Built with MSVC for **ARM64** and **x64** (x86 builds too), statically linked: n
 
 ## <img src="docs/assets/icons/download.svg" width="30" height="30" alt=""> Installation
 
-**Requirements:** Notepad++ **8.7.7 or newer** and the Microsoft Edge **WebView2 Runtime** (already part of
-Windows 11; on Windows 10 it ships with Edge).
+> [!IMPORTANT]
+> **MarkdownReader is a Notepad++ plugin, not an app.** There's no setup program and nothing to double-click: you put
+> a folder inside Notepad++'s `plugins` folder and Notepad++ loads it the next time it starts. It takes about two
+> minutes, and every download includes these steps as `INSTALL.txt`.
 
-1. Download the zip that matches your Notepad++: **[ARM64](https://github.com/rsalinger/NotepadPlusPlus-Markdown/releases/download/v0.1.0/MarkdownReader-arm64.zip)**
-   or **[x64](https://github.com/rsalinger/NotepadPlusPlus-Markdown/releases/download/v0.1.0/MarkdownReader-x64.zip)**.
-   Not sure? *? → About Notepad++* shows it.
-2. Close Notepad++.
-3. Extract the zip into `C:\Program Files\Notepad++\plugins\MarkdownReader\` (create the folder; you'll need admin).
-   You should end up with `plugins\MarkdownReader\MarkdownReader.dll` and a `web` folder next to it.
-4. Start Notepad++ and open any `.md` file. 🎉
+**You'll need:** Notepad++ **8.7.7 or newer** and the Microsoft Edge **WebView2 Runtime** (already part of
+Windows 11; on Windows 10 it comes with Edge).
+
+1. **Pick the right zip.** In Notepad++, open **? → About Notepad++** and look at the first line:
+
+   | It says | Download |
+   |---|---|
+   | **(ARM 64-bit)** | [MarkdownReader-arm64.zip](https://github.com/rsalinger/NotepadPlusPlus-Markdown/releases/download/v0.1.0/MarkdownReader-arm64.zip) |
+   | **(64-bit)** | [MarkdownReader-x64.zip](https://github.com/rsalinger/NotepadPlusPlus-Markdown/releases/download/v0.1.0/MarkdownReader-x64.zip) |
+
+2. **Close Notepad++.**
+3. **Unblock the zip.** Right-click it → **Properties** → tick **Unblock** (if it's shown) → **OK**. Windows can refuse
+   to load DLLs that came from the internet; unblocking the zip *before* extracting avoids that.
+4. **Create the plugin folder** `C:\Program Files\Notepad++\plugins\MarkdownReader\`. Windows will ask for
+   administrator permission; that's expected. Using a portable Notepad++? Create
+   `<your Notepad++ folder>\plugins\MarkdownReader\` instead.
+5. **Copy everything from the zip into that folder**, so that you end up with:
+
+   ```text
+   plugins\
+   └── MarkdownReader\
+       ├── MarkdownReader.dll      ← must be directly in here
+       ├── web\
+       ├── INSTALL.txt
+       ├── LICENSE
+       └── THIRD_PARTY_NOTICES.txt
+   ```
+
+> [!WARNING]
+> Windows' **Extract All** adds an extra folder level (`MarkdownReader\MarkdownReader-arm64\MarkdownReader.dll`), and
+> Notepad++ won't find the plugin there. If that happens, move the files up one level.
+
+6. **Start Notepad++ and open any `.md` file.** 🎉 The **Markdown Preview** panel docks on the right, and everything
+   else is under **Plugins → MarkdownReader**.
 
 > [!TIP]
 > On a first run Notepad++ docks new panels quite narrow. Drag the panel's edge to give it room; Notepad++ remembers.
+
+<details>
+<summary><b>Troubleshooting and uninstalling</b></summary>
+
+<br/>
+
+| What you see | What to do |
+|---|---|
+| "Cannot load ARM64 plugin" or "Cannot load 64-bit plugin" | You installed the zip for the other architecture; see step 1. |
+| No **MarkdownReader** under the **Plugins** menu | The DLL isn't directly inside `plugins\MarkdownReader\` (step 5), or it's still blocked (step 3). |
+| A message that the **WebView2 Runtime** is missing | Install it from [Microsoft](https://developer.microsoft.com/microsoft-edge/webview2/), then restart Notepad++. |
+
+**Uninstall:** close Notepad++ and delete the `plugins\MarkdownReader` folder.
+
+</details>
 
 ---
 

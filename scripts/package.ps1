@@ -5,6 +5,7 @@
     MarkdownReader-<arch>.zip
       MarkdownReader.dll        <- at the zip root, as Plugin Admin requires
       web\                      <- the preview page
+      INSTALL.txt               <- for people who expect an installer
       LICENSE
       THIRD_PARTY_NOTICES.txt
 
@@ -89,6 +90,9 @@ foreach ($p in $Platform) {
     Copy-Item -Recurse $web (Join-Path $stage 'web')
     Remove-Item (Join-Path $stage 'web\THIRD_PARTY_NOTICES.txt')
     Copy-Item (Join-Path $root 'LICENSE') $stage
+    # CRLF so it reads well in any Notepad, whatever the checkout's line endings.
+    $install = (Get-Content -Raw (Join-Path $root 'packaging\INSTALL.txt')) -replace "`r?`n", "`r`n"
+    [IO.File]::WriteAllText((Join-Path $stage 'INSTALL.txt'), $install, (New-Object Text.UTF8Encoding $false))
     Set-Content -Path (Join-Path $stage 'THIRD_PARTY_NOTICES.txt') -Value $notices -Encoding utf8
     Assert-NoMachineData $stage
 
