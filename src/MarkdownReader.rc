@@ -1,0 +1,42 @@
+#include <windows.h>
+#include "resource.h"
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION MDR_VERSION_MAJOR, MDR_VERSION_MINOR, MDR_VERSION_PATCH, MDR_VERSION_BUILD
+ PRODUCTVERSION MDR_VERSION_MAJOR, MDR_VERSION_MINOR, MDR_VERSION_PATCH, MDR_VERSION_BUILD
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+ FILEFLAGS 0x0L
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_DLL
+ FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "MarkdownReader contributors"
+            VALUE "FileDescription", "Markdown preview and reading mode for Notepad++"
+            VALUE "FileVersion", MDR_VERSION_STRING
+            VALUE "InternalName", "MarkdownReader"
+            VALUE "LegalCopyright", "GPL-3.0-or-later"
+            VALUE "OriginalFilename", "MarkdownReader.dll"
+            VALUE "ProductName", "MarkdownReader"
+            VALUE "ProductVersion", MDR_VERSION_STRING
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+// The docking panel is an empty dialog; the WebView fills its client area.
+// The caption is the panel's title in Notepad++.
+IDD_PREVIEW_PANEL DIALOGEX 0, 0, 220, 320
+STYLE DS_SETFONT | DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS
+CAPTION "Markdown Preview"
+FONT 9, "Segoe UI", 400, 0, 0x1
+BEGIN
+END

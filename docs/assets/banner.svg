@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 440" width="1280" height="440" role="img" aria-label="MarkdownReader: Markdown source typed into Notepad++ on the left turns into a rendered page on the right">
+  <title>MarkdownReader: Markdown, rendered. Right inside Notepad++.</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#060a13"/>
+      <stop offset="1" stop-color="#0b1426"/>
+    </linearGradient>
+    <radialGradient id="glowGreen" cx="0.15" cy="0.1" r="0.55">
+      <stop offset="0" stop-color="#3ddc84" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#3ddc84" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="0.9" cy="0.95" r="0.6">
+      <stop offset="0" stop-color="#0ea5e9" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3ddc84"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1e293b" stroke-width="1" opacity="0.55"/>
+    </pattern>
+    <filter id="neon" x="-20%" y="-60%" width="140%" height="220%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <style>
+    .sans { font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; }
+    .mono { font-family: "Cascadia Code", Consolas, "SFMono-Regular", Menlo, monospace; }
+
+    /* Neon sign flicker */
+    .neon { animation: flicker 5s infinite; }
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+      20%, 24%, 55% { opacity: 0.35; }
+    }
+
+    /* Typing, the render pulse, and the rendered page, on one 8 s loop */
+    .step { opacity: 0; animation: show 8s infinite both; }
+    @keyframes show {
+      0% { opacity: 0; transform: translateX(-6px); }
+      4% { opacity: 1; transform: none; }
+      82% { opacity: 1; }
+      92%, 100% { opacity: 0; }
+    }
+    .d1 { animation-delay: 0.2s; } .d2 { animation-delay: 0.7s; } .d3 { animation-delay: 1.2s; }
+    .d4 { animation-delay: 1.7s; } .d5 { animation-delay: 2.2s; }
+    .r1 { animation-delay: 3.2s; } .r2 { animation-delay: 3.6s; } .r3 { animation-delay: 4.0s; }
+    .r4 { animation-delay: 4.4s; }
+
+    .pulse { animation: travel 8s infinite both; animation-delay: 2.4s; }
+    @keyframes travel {
+      0% { transform: translateX(0); opacity: 0; }
+      2% { opacity: 1; }
+      10% { transform: translateX(96px); opacity: 1; }
+      12%, 100% { transform: translateX(96px); opacity: 0; }
+    }
+
+    .caret { animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .neon, .step, .pulse, .caret { animation: none; opacity: 1; transform: none; }
+      .pulse { opacity: 0; }
+    }
+  </style>
+
+  <!-- backdrop -->
+  <rect width="1280" height="440" fill="url(#bg)"/>
+  <rect width="1280" height="440" fill="url(#grid)"/>
+  <rect width="1280" height="440" fill="url(#glowGreen)"/>
+  <rect width="1280" height="440" fill="url(#glowBlue)"/>
+
+  <!-- neon title -->
+  <g class="sans" text-anchor="middle">
+    <text x="640" y="104" font-size="78" font-weight="800" fill="url(#brand)" filter="url(#neon)" class="neon">MarkdownReader</text>
+    <text x="640" y="150" font-size="25" fill="#cbd5e1" letter-spacing="0.5">Markdown, rendered. Right inside Notepad++.</text>
+  </g>
+
+  <!-- editor card -->
+  <g transform="translate(110 186)">
+    <rect width="450" height="200" rx="16" fill="#0f172a" stroke="#334155"/>
+    <rect width="450" height="36" rx="16" fill="#111c33"/>
+    <rect y="20" width="450" height="16" fill="#111c33"/>
+    <circle cx="22" cy="18" r="6" fill="#ef4444"/><circle cx="42" cy="18" r="6" fill="#f59e0b"/><circle cx="62" cy="18" r="6" fill="#22c55e"/>
+    <text x="225" y="23" class="sans" font-size="13" fill="#94a3b8" text-anchor="middle">notes.md · Notepad++</text>
+    <g class="mono" font-size="17">
+      <text x="24" y="70" class="step d1"><tspan fill="#f97316"># Release notes</tspan></text>
+      <text x="24" y="98" class="step d2"><tspan fill="#64748b">- [x]</tspan><tspan fill="#e2e8f0"> Live preview</tspan></text>
+      <text x="24" y="126" class="step d3"><tspan fill="#64748b">- [x]</tspan><tspan fill="#e2e8f0"> Reading mode</tspan></text>
+      <text x="24" y="154" class="step d4"><tspan fill="#a78bfa">```mermaid</tspan></text>
+      <text x="24" y="182" class="step d5"><tspan fill="#e2e8f0">Notepad++ --&gt; </tspan><tspan fill="#2dd4bf">Rendered</tspan><tspan class="caret" fill="#e2e8f0">▍</tspan></text>
+    </g>
+  </g>
+
+  <!-- the render pipe -->
+  <g transform="translate(578 286)">
+    <line x1="0" y1="0" x2="124" y2="0" stroke="#1e3a5f" stroke-width="4" stroke-linecap="round"/>
+    <path d="M114 -9 L126 0 L114 9" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="14" cy="0" r="8" fill="#2dd4bf" filter="url(#soft)" class="pulse"/>
+    <circle cx="14" cy="0" r="4" fill="#ecfeff" class="pulse"/>
+    <text x="62" y="-16" class="sans" font-size="13" fill="#64748b" text-anchor="middle">WebView2</text>
+  </g>
+
+  <!-- rendered card -->
+  <g transform="translate(720 186)">
+    <rect width="450" height="200" rx="16" fill="#f8fafc" stroke="#cbd5e1"/>
+    <g class="sans">
+      <g class="step r1">
+        <text x="26" y="56" font-size="27" font-weight="700" fill="#0f172a">Release notes</text>
+        <line x1="26" y1="70" x2="424" y2="70" stroke="#d0d7de"/>
+      </g>
+      <g class="step r2" font-size="17" fill="#1f2328">
+        <rect x="26" y="86" width="16" height="16" rx="3" fill="#0969da"/>
+        <path d="M30 94 l3.5 3.5 l6 -7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="52" y="100">Live preview</text>
+      </g>
+      <g class="step r3" font-size="17" fill="#1f2328">
+        <rect x="26" y="114" width="16" height="16" rx="3" fill="#0969da"/>
+        <path d="M30 122 l3.5 3.5 l6 -7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="52" y="128">Reading mode</text>
+      </g>
+      <g class="step r4" font-size="13">
+        <rect x="200" y="146" width="96" height="34" rx="7" fill="#eef2ff" stroke="#8b5cf6"/>
+        <text x="248" y="168" text-anchor="middle" fill="#4c1d95">Notepad++</text>
+        <path d="M298 163 H322" stroke="#8b5cf6" stroke-width="2"/>
+        <path d="M318 158 L324 163 L318 168" fill="none" stroke="#8b5cf6" stroke-width="2"/>
+        <rect x="326" y="146" width="96" height="34" rx="7" fill="#eef2ff" stroke="#8b5cf6"/>
+        <text x="374" y="168" text-anchor="middle" fill="#4c1d95">Rendered</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- platform chips -->
+  <g class="sans" font-size="14" font-weight="600" text-anchor="middle">
+    <g transform="translate(452 412)">
+      <rect x="-56" y="-17" width="112" height="26" rx="13" fill="#0f2a1d" stroke="#3ddc84"/>
+      <text y="1" fill="#86efac">ARM64</text>
+    </g>
+    <g transform="translate(572 412)">
+      <rect x="-48" y="-17" width="96" height="26" rx="13" fill="#0c2530" stroke="#2dd4bf"/>
+      <text y="1" fill="#99f6e4">x64</text>
+    </g>
+    <g transform="translate(692 412)">
+      <rect x="-56" y="-17" width="112" height="26" rx="13" fill="#0b2235" stroke="#38bdf8"/>
+      <text y="1" fill="#bae6fd">Mermaid</text>
+    </g>
+    <g transform="translate(824 412)">
+      <rect x="-60" y="-17" width="120" height="26" rx="13" fill="#1e1b3a" stroke="#a78bfa"/>
+      <text y="1" fill="#ddd6fe">Dark mode</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,77 @@
+/* Layout and plugin-specific additions on top of github-markdown-css. */
+
+:root {
+  color-scheme: light;
+  --mdr-bg: #ffffff;
+  --mdr-error-bg: #fff1f0;
+  --mdr-error-fg: #a40e26;
+  --mdr-muted: #59636e;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --mdr-bg: #0d1117;
+  --mdr-error-bg: #2d1316;
+  --mdr-error-fg: #ff9492;
+  --mdr-muted: #9198a1;
+}
+
+html, body {
+  margin: 0;
+  background: var(--mdr-bg);
+}
+
+.markdown-body {
+  box-sizing: border-box;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 32px 50vh; /* extra bottom space so the last lines can be scroll-synced to the top */
+}
+
+@media (max-width: 600px) {
+  .markdown-body { padding: 16px 16px 50vh; }
+}
+
+/* Notepad++ docks new panels quite narrow until the user drags them wider:
+   use the space and hyphenate instead of breaking words anywhere. */
+@media (max-width: 420px) {
+  .markdown-body { padding: 10px 10px 50vh; hyphens: auto; }
+  .markdown-body h1 { font-size: 1.6em; }
+  .markdown-body h2 { font-size: 1.3em; }
+}
+
+/* html_block position markers are invisible anchors for scroll sync. */
+.source-marker { display: block; height: 0; margin: 0; padding: 0; }
+
+/* Mermaid: show the source until the diagram is ready, then only the diagram. */
+.mermaid-block { margin-bottom: 16px; }
+.mermaid-block.mermaid-rendered > .mermaid-source { display: none; }
+.mermaid-svg { text-align: center; overflow-x: auto; }
+.mermaid-svg svg { max-width: 100%; height: auto; }
+.mermaid-error {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--mdr-error-bg);
+  color: var(--mdr-error-fg);
+  font: 12px ui-monospace, SFMono-Regular, Consolas, monospace;
+  white-space: pre-wrap;
+}
+
+/* Front matter is collapsed by default. */
+details[data-front-matter] { margin-bottom: 16px; color: var(--mdr-muted); }
+details[data-front-matter] > summary { cursor: pointer; font-size: 85%; }
+
+/* Remote images blocked by the privacy setting. */
+img.remote-image-blocked {
+  display: inline-block;
+  min-width: 120px;
+  min-height: 24px;
+  border: 1px dashed var(--mdr-muted);
+}
+
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --mdr-bg: #ffffff; }
+  .markdown-body { max-width: none; padding: 0; }
+  details[data-front-matter] { display: none; }
+  pre, table, .mermaid-block, img { break-inside: avoid; }
+}

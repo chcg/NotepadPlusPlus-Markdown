@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 108" width="460" height="108" role="img" aria-label="Plugin Admin: Listing coming soon">
+  <title>Plugin Admin</title>
+  <defs>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ddc84"/><stop offset="1" stop-color="#38bdf8"/></linearGradient>
+    <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101a2e"/><stop offset="1" stop-color="#070c18"/></linearGradient>
+  </defs>
+  <rect x="2" y="2" width="456" height="104" rx="22" fill="url(#fill)" stroke="#475569" stroke-width="3"/>
+  <g transform="translate(26 22)" fill="none" stroke="#475569" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22h12a6 6 0 1 1 12 0h12v12a6 6 0 1 1 0 12v12H10z"/></g>
+  <g font-family="Segoe UI, system-ui, -apple-system, Helvetica, Arial, sans-serif">
+    <text x="108" y="50" font-size="27" font-weight="700" fill="#94a3b8">Plugin Admin</text>
+    <text x="108" y="79" font-size="16" fill="#94a3b8">Listing coming soon</text>
+  </g>
+</svg>

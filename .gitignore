@@ -1,0 +1,51 @@
+# ---- Build output ----------------------------------------------------------
+build/
+bin/
+bin64/
+arm64/
+vs.proj/Debug/
+vs.proj/Release/
+vs.proj/x64/
+vs.proj/ARM64/
+vs.proj/Win32/
+*.obj
+*.pch
+*.ipch
+*.ilk
+*.pdb
+*.exp
+*.iobj
+*.ipdb
+*.tlog
+*.lastbuildstate
+*.aps
+*.zip
+
+# ---- Package managers ------------------------------------------------------
+# NuGet packages (restored with: msbuild MarkdownReader.sln -t:restore -p:RestorePackagesConfig=true)
+packages/
+# npm
+node_modules/
+web/dist/
+npm-debug.log*
+
+# ---- Local development -----------------------------------------------------
+# Portable Notepad++ sandboxes created by scripts/setup-dev.ps1
+.npp-dev/
+# Editor / tool settings that are per-machine
+.vs/
+.vscode/
+.idea/
+.claude/
+*.user
+*.suo
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+*.log
+
+# ---- OS clutter ------------------------------------------------------------
+Thumbs.db
+desktop.ini
+.DS_Store

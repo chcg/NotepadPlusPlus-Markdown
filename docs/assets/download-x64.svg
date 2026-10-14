@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 108" width="460" height="108" role="img" aria-label="Download for x64: Intel &amp; AMD Windows PCs">
+  <title>Download for x64</title>
+  <defs>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ddc84"/><stop offset="1" stop-color="#38bdf8"/></linearGradient>
+    <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101a2e"/><stop offset="1" stop-color="#070c18"/></linearGradient>
+  </defs>
+  <rect x="2" y="2" width="456" height="104" rx="22" fill="url(#fill)" stroke="url(#rim)" stroke-width="3"/>
+  <g transform="translate(26 22)" fill="none" stroke="url(#rim)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6v36M18 30l14 14 14-14M10 58h44"/></g>
+  <g font-family="Segoe UI, system-ui, -apple-system, Helvetica, Arial, sans-serif">
+    <text x="108" y="50" font-size="27" font-weight="700" fill="#f8fafc">Download for x64</text>
+    <text x="108" y="79" font-size="16" fill="#94a3b8">Intel &amp; AMD Windows PCs</text>
+  </g>
+</svg>

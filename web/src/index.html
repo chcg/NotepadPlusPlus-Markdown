@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-app-origin="%APP_ORIGIN%">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="%CSP%">
+<!-- Relative links and images in the document resolve against its folder,
+     which the plugin serves on this origin. Our own assets use absolute URLs. -->
+<base href="%DOC_ORIGIN%/">
+<title>Markdown preview</title>
+<link rel="stylesheet" data-theme-sheet="light" href="%APP_ORIGIN%/styles/github-markdown-light.css">
+<link rel="stylesheet" data-theme-sheet="dark" href="%APP_ORIGIN%/styles/github-markdown-dark.css" media="not all">
+<link rel="stylesheet" data-theme-sheet="light" href="%APP_ORIGIN%/styles/hljs-github.css">
+<link rel="stylesheet" data-theme-sheet="dark" href="%APP_ORIGIN%/styles/hljs-github-dark.css" media="not all">
+<link rel="stylesheet" data-theme-sheet="both" href="%APP_ORIGIN%/styles/preview.css">
+<style id="custom-css"></style>
+<script defer src="%APP_ORIGIN%/preview.js"></script>
+%DEV_SCRIPT%
+</head>
+<body>
+<main id="content" class="markdown-body"></main>
+</body>
+</html>
