@@ -197,6 +197,12 @@ Built with MSVC for **ARM64** and **x64** (x86 builds too), statically linked: n
 > a folder inside Notepad++'s `plugins` folder and Notepad++ loads it the next time it starts. It takes about two
 > minutes, and every download includes these steps as `INSTALL.txt`.
 
+> [!NOTE]
+> **Coming to Plugins Admin.** MarkdownReader has been
+> [submitted](https://github.com/notepad-plus-plus/nppPluginList/pull/1223) to Notepad++'s official plugin list. Once
+> it's accepted and included in a Notepad++ update, you'll be able to install it from **Plugins → Plugins Admin**
+> (search for *MarkdownReader*, tick it, click **Install**) with no manual steps. Until then, use the steps below.
+
 **You'll need:** Notepad++ **8.7.7 or newer** and the Microsoft Edge **WebView2 Runtime** (already part of
 Windows 11; on Windows 10 it comes with Edge).
 
@@ -361,6 +367,8 @@ scripts\package.ps1
 ## <img src="docs/assets/icons/map.svg" width="30" height="30" alt=""> Roadmap
 
 - [x] **v0.1:** live preview, reading mode, scroll sync, Mermaid, dark mode, native ARM64 + x64
+- [ ] **Plugins Admin** listing: [submitted](https://github.com/notepad-plus-plus/nppPluginList/pull/1223), waiting
+  for review and the next Notepad++ release
 - [ ] Hands-on verification of export, print, links and shortcuts → **v0.2**
 - [ ] Toolbar buttons, a settings dialog and an x86 release
 - [ ] CI builds on GitHub Actions (ARM64 runners included)
