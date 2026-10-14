@@ -99,5 +99,6 @@ foreach ($p in $Platform) {
     $hashes += "$hash  $(Split-Path -Leaf $zip)"
 }
 
-$hashes | Set-Content -Path (Join-Path $out 'SHA256SUMS.txt') -Encoding ascii
+# LF line endings so `sha256sum -c SHA256SUMS.txt` works everywhere.
+[IO.File]::WriteAllText((Join-Path $out 'SHA256SUMS.txt'), (($hashes -join "`n") + "`n"), [Text.Encoding]::ASCII)
 $hashes
